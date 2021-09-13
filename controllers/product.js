@@ -7,7 +7,7 @@ exports.getAllProducts = async (req, res, next) => {
     try {
         const [allProducts] = await Product.fetchAll();
         for (var product of allProducts) {
-            product.picture = "data:image/jpeg;base64," + await fsp.readFile("/assets/products/" + product.picture, 'base64');
+            product.picture = "data:image/jpeg;base64," + await fsp.readFile("./assets/products/" + product.picture, 'base64');
         }
         res.status(200).json(allProducts);
     } catch {
@@ -23,7 +23,7 @@ exports.getProduct = async (req, res, next) => {
         };
         const [prod] = await Product.find(productDetails);
         for (var product of prod) {
-            product.picture = "data:image/jpeg;base64," + await fsp.readFile("/assets/products/" + product.picture, 'base64');
+            product.picture = "data:image/jpeg;base64," + await fsp.readFile("./assets/products/" + product.picture, 'base64');
         }
         if (prod.length > 0) { //check if there was any matches
             res.status(202).json(prod[0]);

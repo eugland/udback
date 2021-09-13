@@ -6,7 +6,7 @@ module.exports = class FileSave{
         // creates name for picture based off of user id, then shaves off leading data. saves picture using fs then updates the database path
         //console.log("Data from picture = " + data);
         var pictureName = "user_"+userId+".jpg"
-        var path = "/assets/users/"+pictureName;
+        var path = "./assets/users/"+pictureName;
         const dataPic = data.replace(/^data:.*,/,'');
        // console.log(dataPic);
         fs.writeFile(path,dataPic,'base64', function(err,result){
@@ -24,7 +24,7 @@ module.exports = class FileSave{
         // creates name for picture based off of user id, then shaves off leading data. saves picture using fs then updates the database path
         //console.log("Data from picture = " + data);
         var pictureName = "product_"+ name +".jpg"
-        var path = "/assets/products/"+pictureName;
+        var path = "./assets/products/"+pictureName;
         const dataPic = data.replace(/^data:.*,/,'');
        // console.log(dataPic);
         fs.writeFile(path,dataPic,'base64', function(err,result){

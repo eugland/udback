@@ -12,7 +12,7 @@ exports.getCart = async (req, res, next) => {
         };
         const [prod] = await Cart.fetchAll(cartDetails);
         for (var product of prod) {
-            product.picture = "data:image/jpeg;base64," + await fsp.readFile("/assets/products/" + product.picture, 'base64');
+            product.picture = "data:image/jpeg;base64," + await fsp.readFile("./assets/products/" + product.picture, 'base64');
         }
         if (prod.length > 0) { //check if there was any matches
             res.status(202).json(prod);
