@@ -8,7 +8,7 @@ exports.getAllUsers = async (req, res, next) =>{
     try{
         const [allUsers] = await User.fetchAll();
         for (var user of allUsers) {
-            user.picture =  "data:image/jpeg;base64," + await fsp.readFile("../backend/assets/users/"+user.picture, 'base64');
+            user.picture =  "data:image/jpeg;base64," + await fsp.readFile("/assets/users/"+user.picture, 'base64');
         }
         res.status(200).json(allUsers);
 
@@ -52,7 +52,7 @@ exports.loginUser = async (req, res, next) =>{
         const [loginTwo] = await User.find(userDetails);
         if(login[0].length>0){ //check if there was any matches
             //retrieve profile picture and replace picture with base64 representation.
-            const path = "../backend/assets/users/"+loginTwo[0].picture;
+            const path = "/assets/users/"+loginTwo[0].picture;
             fs.readFile(path, 'base64', function (err, result) {
                 if(err)
                     console.log(err);
