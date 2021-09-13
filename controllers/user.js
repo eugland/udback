@@ -12,8 +12,8 @@ exports.getAllUsers = async (req, res, next) =>{
         }
         res.status(200).json(allUsers);
 
-    } catch{
-        console.log('Error');
+    } catch (err) {
+        console.log(err);
     }
 };
 

@@ -1,5 +1,5 @@
 {
-    "host":"sql9.freemysqlhosting.net",
+    "host":"localhost",
     "user":"sql9436950",
     "password":"vI5T36jF7v",
     "database": "sql9436950"
