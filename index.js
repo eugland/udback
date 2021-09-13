@@ -6,7 +6,7 @@ const userRoutes = require('./routes/user');
 
 
 const app = express();
-const PORT = 3000;
+const PORT = 80;
 app.use(bodyParser.json({limit: '5mb'}));
 
 app.use((req, res, next) => {
